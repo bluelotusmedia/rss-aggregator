@@ -1,7 +1,7 @@
 import { RssFeed, RssArticle } from '../types';
 
 // Use a public CORS proxy to fetch RSS feeds from the client-side
-const CORS_PROXY = 'https://corsproxy.io/?';
+const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
 /**
  * Fetches content from multiple RSS feeds, parses the XML, and returns a single,
