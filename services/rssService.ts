@@ -1,7 +1,32 @@
 import { RssFeed, RssArticle } from '../types';
+import { CORS_PROXIES } from '../constants';
 
-// Use a public CORS proxy to fetch RSS feeds from the client-side
-const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+const fetchWithProxyRotation = async (feedUrl: string, proxyIndex = 0): Promise<Response> => {
+    if (proxyIndex >= CORS_PROXIES.length) {
+        throw new Error(`All CORS proxies failed for feed: ${feedUrl}`);
+    }
+
+    const proxy = CORS_PROXIES[proxyIndex];
+    
+    const fetchUrl = proxy.includes('?url=')
+        ? `${proxy}${encodeURIComponent(feedUrl)}`
+        : `${proxy}${feedUrl}`;
+
+    try {
+        console.log(`Trying to fetch ${feedUrl} with proxy: ${proxy}`);
+        const response = await fetch(fetchUrl);
+        if (!response.ok) {
+            console.warn(`Proxy ${proxy} failed for ${feedUrl} with status: ${response.status}. Trying next proxy.`);
+            return fetchWithProxyRotation(feedUrl, proxyIndex + 1);
+        }
+        console.log(`Successfully fetched ${feedUrl} with proxy: ${proxy}`);
+        return response;
+    } catch (error) {
+        console.warn(`Proxy ${proxy} failed for ${feedUrl} with error:`, error);
+        return fetchWithProxyRotation(feedUrl, proxyIndex + 1);
+    }
+};
+
 
 /**
  * Fetches content from multiple RSS feeds, parses the XML, and returns a single,
@@ -14,11 +39,7 @@ export const fetchAndParseRssFeeds = async (feeds: RssFeed[]): Promise<RssArticl
 
     const fetchPromises = feeds.map(async (feed) => {
         try {
-            const response = await fetch(`${CORS_PROXY}${encodeURIComponent(feed.url)}`);
-            if (!response.ok) {
-                console.warn(`Failed to fetch RSS feed: ${feed.name}`, response.status);
-                return [];
-            }
+            const response = await fetchWithProxyRotation(feed.url);
             const xmlText = await response.text();
             const doc = parser.parseFromString(xmlText, "application/xml");
 

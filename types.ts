@@ -3,6 +3,11 @@ export interface RssFeed {
   url: string;
 }
 
+export interface RssFeedCategory {
+  name: string;
+  feeds: RssFeed[];
+}
+
 export interface RssArticle {
   title: string;
   url: string;

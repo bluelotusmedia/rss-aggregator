@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { RSS_FEEDS } from "../constants";
 import { RssArticle } from "../types";
 
 const timeAgo = (dateStr: string) => {
@@ -59,8 +58,7 @@ interface NewsFeedProps {
 	isLoading: boolean;
 	error: string | null;
 	onRefresh: () => void;
-	activeFeedUrls: Set<string>;
-	onFeedToggle: (url: string) => void;
+	noFeedsSelected: boolean;
 }
 
 const NewsFeed: React.FC<NewsFeedProps> = ({
@@ -68,10 +66,8 @@ const NewsFeed: React.FC<NewsFeedProps> = ({
 	isLoading,
 	error,
 	onRefresh,
-	activeFeedUrls,
-	onFeedToggle,
+	noFeedsSelected,
 }) => {
-	const noFeedsSelected = activeFeedUrls.size === 0;
 	const [currentPage, setCurrentPage] = useState(1);
 	const articlesPerPage = 10;
 
@@ -166,38 +162,6 @@ const NewsFeed: React.FC<NewsFeedProps> = ({
 							</button>
 						</div>
 					)}
-
-					<div className="mt-4 pt-2 border-t border-gray-700">
-						<details className="text-gray-500">
-							<summary className="text-sm font-semibold text-gray-400 cursor-pointer hover:text-white">
-								Feed Manager ({activeFeedUrls.size} / {RSS_FEEDS.length} active)
-							</summary>
-							<div className="text-xs space-y-1 mt-2 max-h-48 overflow-y-auto pr-2 bg-gray-900 p-2 rounded-md">
-								{RSS_FEEDS.map((feed) => (
-									<label
-										key={feed.url}
-										className="flex items-center space-x-2 cursor-pointer p-1 hover:bg-gray-700 rounded-md"
-									>
-										<input
-											type="checkbox"
-											className="form-checkbox h-3 w-3 bg-gray-700 border-gray-600 rounded text-cyan-500 focus:ring-cyan-500"
-											checked={activeFeedUrls.has(feed.url)}
-											onChange={() => onFeedToggle(feed.url)}
-										/>
-										<span
-											className={
-												activeFeedUrls.has(feed.url)
-													? "text-gray-200"
-													: "text-gray-500"
-											}
-										>
-											{feed.name}
-										</span>
-									</label>
-								))}
-							</div>
-						</details>
-					</div>
 				</div>
 			</div>
 		</div>
