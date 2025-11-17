@@ -72,59 +72,37 @@ export const RSS_FEEDS: RssFeed[] = [
 
   // === International Markets & Global Macro ===
   { name: 'Bank of England: News', url: 'https://www.bankofengland.co.uk/rss/news' },
-  { name: 'Euronext News', url: 'https://live.euronext.com/en/rss/news-and-insights' },
   { name: 'Der Spiegel: International', url: 'https://www.spiegel.de/international/index.rss' },
   { name: 'Le Monde: International', url: 'https://www.lemonde.fr/rss/en_continu.xml' },
 
   // === Specific Sectors ===
   { name: 'STAT News (Biotech/Health)', url: 'https://www.statnews.com/feed/' },
   { name: 'Fierce Pharma', url: 'https://www.fiercepharma.com/rss/xml' },
-  { name: 'Reuters: Health', url: 'https://feeds.reuters.com/reuters/healthNews' },
-  { name: 'Ad Age', url: 'https://adage.com/rss.xml' }, // Advertising & Marketing
-  { name: 'The Real Deal (Real Estate)', url: 'https://therealdeal.com/feed/' },
   { name: 'Supply Chain Dive', url: 'https://www.supplychaindive.com/feeds/news/' },
   { name: 'Retail Dive', url: 'https://www.retaildive.com/feeds/news/' },
 
   // === ADDITIONAL FEEDS (EXPANDED LIST) ===
 
   // === More Top-Tier News Outlets ===
-  { name: 'Reuters: Top News', url: 'http://feeds.reuters.com/reuters/topNews' },
-  { name: 'Reuters: Company News', url: 'http://feeds.reuters.com/reuters/companyNews' },
-  { name: 'Reuters: Deals', url: 'https://feeds.reuters.com/reuters/deals' },
-  { name: 'Reuters: Financials', url: 'https://feeds.reuters.com/news/wealth' },
   { name: 'WSJ: Tech', url: 'https://feeds.a.dj.com/rss/RSSWSJD.xml' },
   { name: 'WSJ: Opinion', url: 'https://feeds.a.dj.com/rss/RSSOpinion.xml' },
   { name: 'WSJ: U.S. Business', url: 'https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml' },
-  { name: 'Bloomberg: Deals', url: 'https://feeds.bloomberg.com/deals/news.rss' },
   { name: 'Bloomberg: Economics', url: 'https://feeds.bloomberg.com/economics/news.rss' },
-  { name: 'Bloomberg: Energy', url: 'https://www.bloomberg.com/energy/feed/rss/' },
-  { name: 'Bloomberg: Wealth', url: 'https://www.bloomberg.com/wealth/feed/rss/' },
   { name: 'Business Insider', url: 'https://feeds.businessinsider.com/custom/all' },
   { name: 'Forbes: Business', url: 'https://www.forbes.com/business/feed/' },
   { name: 'Fortune', url: 'https://fortune.com/feed/' },
   { name: 'Fast Company', url: 'https://www.fastcompany.com/rss' },
   { name: 'Quartz', url: 'https://qz.com/feed/' },
   { name: 'Puck News', url: 'https://puck.news/feed/' },
-  { name: 'Semafor', url: 'https://www.semafor.com/feed' },
   { name: 'UPI: Business', url: 'https://www.upi.com/rss/business-news.rss' },
   
   // === Think Tanks & Economic Research ===
   { name: 'NBER', url: 'https://www.nber.org/rss/new.xml' },
-  { name: 'Brookings Institution: Economics', url: 'https://www.brookings.edu/topic/economics/feed/' },
-  { name: 'Cato Institute', url: 'https://www.cato.org/rss/all' },
   { name: 'American Enterprise Institute (AEI)', url: 'https://www.aei.org/feed/' },
   { name: 'Mises Institute', url: 'https://mises.org/feed' },
   { name: 'Center on Budget and Policy (CBPP)', url: 'https://www.cbpp.org/rss.xml' },
   { name: 'Economic Policy Institute (EPI)', url: 'https://www.epi.org/feed/' },
-  { name: 'Mercatus Center', url: 'https://www.mercatus.org/rss.xml' },
-  { name: 'RAND: Economy & Income', url: 'https://www.rand.org/topics/economy-and-income.rss' },
-  { name: 'Urban Institute', url: 'https://www.urban.org/rss.xml' },
 
-  // === International Organizations ===
-  { name: 'Bank for International Settlements (BIS)', url: 'https://www.bis.org/doclist/rss_cbspeeches.xml' },
-  { name: 'OECD News', url: 'https://www.oecd.org/feeds/news/' },
-  { name: 'World Economic Forum (WEF)', url: 'https://www.weforum.org/feed' },
-  { name: 'Asian Development Bank (ADB)', url: 'https://www.adb.org/news/rss' },
   
   // === More U.S. Regulators & Agencies ===
   { name: 'SEC: Speeches', url: 'https://www.sec.gov/news/speeches.rss' },
